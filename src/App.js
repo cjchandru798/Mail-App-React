@@ -10,7 +10,8 @@ function App() {
   const [message, setMessage] = useState("");
   const [file, setFile] = useState(null);
 
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  // ✅ Default to local dev URL if env not set
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8081";
 
   const login = useGoogleLogin({
     scope:
@@ -28,6 +29,7 @@ function App() {
 
         setEmail(res.data.email);
       } catch (err) {
+        console.error("❌ Failed to fetch user info", err);
         alert("Failed to fetch user info");
       }
     },
@@ -46,6 +48,7 @@ function App() {
     formData.append("message", message);
 
     try {
+      console.log("📤 Sending to:", `${API_BASE_URL}/api/mail/send`);
       const res = await axios.post(`${API_BASE_URL}/api/mail/send`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -54,6 +57,7 @@ function App() {
       });
       alert(res.data);
     } catch (err) {
+      console.error("❌ Failed to send email:", err);
       alert("Failed to send email: " + (err.response?.data || err.message));
     }
   };
