@@ -49,7 +49,7 @@ function App() {
 
     try {
       console.log("📤 Sending to:", `${API_BASE_URL}/api/mail/send`);
-      const res = await axios.post(`${API_BASE_URL}/api/mail/send`, formData, {
+      const res = await axios.get(`${API_BASE_URL}/api/mail/send`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
