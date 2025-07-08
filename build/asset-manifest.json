@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cjchandru798/Mail-App-React.git/static/css/main.ae0dc689.css",
+    "main.js": "/cjchandru798/Mail-App-React.git/static/js/main.32762d52.js",
+    "index.html": "/cjchandru798/Mail-App-React.git/index.html",
+    "main.ae0dc689.css.map": "/cjchandru798/Mail-App-React.git/static/css/main.ae0dc689.css.map",
+    "main.32762d52.js.map": "/cjchandru798/Mail-App-React.git/static/js/main.32762d52.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae0dc689.css",
+    "static/js/main.32762d52.js"
+  ]
+}
