@@ -10,18 +10,17 @@ function App() {
   const [message, setMessage] = useState("");
   const [file, setFile] = useState(null);
 
-  // ✅ Default to local dev URL if env not set
+  // ✅ Use API base URL from environment or fallback to localhost
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
 
   const login = useGoogleLogin({
-    scope:
-      "https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/userinfo.email",
+    scope: "https://www.googleapis.com/auth/gmail.send https://www.googleapis.com/auth/userinfo.email",
     flow: "implicit",
     onSuccess: async (tokenResponse) => {
       try {
         setToken(tokenResponse.access_token);
 
-        const res = await axios.post("https://www.googleapis.com/oauth2/v3/userinfo", {
+        const res = await axios.get("https://www.googleapis.com/oauth2/v3/userinfo", {
           headers: {
             Authorization: `Bearer ${tokenResponse.access_token}`,
           },
@@ -49,7 +48,7 @@ function App() {
 
     try {
       console.log("📤 Sending to:", `${API_BASE_URL}/api/mail/send`);
-      const res = await axios.get(`${API_BASE_URL}/api/mail/send`, formData, {
+      const res = await axios.post(`${API_BASE_URL}/api/mail/send`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
