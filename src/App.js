@@ -11,7 +11,7 @@ function App() {
   const [file, setFile] = useState(null);
 
   // ✅ Default to local dev URL if env not set
-  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8081";
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
 
   const login = useGoogleLogin({
     scope:
