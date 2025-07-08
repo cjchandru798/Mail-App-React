@@ -2,7 +2,7 @@
   "name": "react-frontend",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://github.com/cjchandru798/Mail-App-React.git",
+  "homepage": ".",
   "dependencies": {
     "@react-oauth/google": "^0.12.2",
     "axios": "^1.10.0",
