@@ -21,7 +21,7 @@ function App() {
       try {
         setToken(tokenResponse.access_token);
 
-        const res = await axios.get("https://www.googleapis.com/oauth2/v3/userinfo", {
+        const res = await axios.post("https://www.googleapis.com/oauth2/v3/userinfo", {
           headers: {
             Authorization: `Bearer ${tokenResponse.access_token}`,
           },
